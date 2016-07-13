@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+
+  "name": "Learn Extension",
+  "description": "Saves links to our Dashboard",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "flatiron-school-logo.png",
+    "default_title": "Click to Bookmark Link"
+  },
+
+  "background": {
+    "scripts": ["events/click_listener.js", "jquery/jquery-2.2.0.min.js"]
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content_scripts/save_link.js", "jquery/jquery-2.2.0.min.js"]
+    }
+  ],
+
+  "permissions": [
+    "tabs",
+    "cookies",
+    "http://*/*"
+  ]
+
+
+}
